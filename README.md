@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 Tier-Based Event Showcase
 
-## Getting Started
+A full-stack web application built with **Next.js 14**, **Clerk Authentication**, **Supabase**, and **Tailwind CSS** that allows users to view events based on their tier (Free, Silver, Gold, Platinum), and gives admin control to manage events and user tiers.
 
-First, run the development server:
+## 🔐 Features
 
-```bash
+### 👥 Authentication (Clerk.dev)
+- User sign-up / sign-in
+- Admin recognition by email
+
+### 🎯 Tier System
+- Tiers: `Free`, `Silver`, `Gold`, `Platinum`
+- Users are prompted to select their tier during first login
+- Events are filtered based on tier access
+
+### 🗓️ Event Showcase
+- Admin can **add**, **edit**, and **delete** events
+- Each event displays title, description, tier, date, and image
+- Badge color changes based on event tier
+- Tier filter buttons allow filtering visible events
+
+### 🛠️ Admin Panel
+- Admin (based on email) can:
+  - Add new events
+  - Edit existing events
+  - Delete events
+  - View all events across all tiers
+  - Update any user's tier
+
+---
+
+## 🧰 Tech Stack
+
+| Tool       | Description                           |
+|------------|---------------------------------------|
+| Next.js 14 | App directory structure, SSR/SSG      |
+| Clerk.dev  | User authentication & session         |
+| Supabase   | Backend database and storage          |
+| Tailwind CSS | Fast and responsive styling        |
+| TypeScript | Static typing for better safety       |
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Priyanka-80/tier-events.git
+   cd tier-events
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
+Create .env.local
+Configure your Clerk and Supabase credentials:
+
+env
+Copy
+Edit
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+Run the development server
+
+Copy
+Edit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🖼️ Database Schema (Supabase)
+events table:
+Column	Type
+id	integer (PK)
+title	text
+description	text
+tier	text
+event_date	date
+image_url	text
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+user_tiers table:
+Column	Type
+user_id	text (Clerk user ID)
+tier	text
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✨ Screenshots
+Dashboard with tier filter, event cards, and admin controls
+Add screenshots here if available
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👩‍💻 Author
+Priyanka S M
+GitHub: @Priyanka-80
